@@ -21,7 +21,6 @@ jobs:
       - name: Run tests
         run: |
           npm start
-#          npm test -- --coverage --watchAll
           npx cypress run 
 
         
