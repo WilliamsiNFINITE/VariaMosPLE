@@ -16,6 +16,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
+      - name: Start
         run: |
           npm install
           npm start       
@@ -27,6 +28,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
+      - name: UT
         run: |
           npm install
           npm test -- --coverage --detectOpenHandles --watchAll --forceExit
@@ -38,6 +40,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
+      - name: IT
         run: |
           npm install  
           npx cypress run
