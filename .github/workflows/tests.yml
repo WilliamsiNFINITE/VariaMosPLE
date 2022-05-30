@@ -16,6 +16,7 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Install dependencies
         run: npm install
 
   start_application:
@@ -26,6 +27,7 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Start application
         run: npm start
 
   run_unit_tests:
@@ -36,6 +38,7 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Run unit tests
         run: npm test -- --coverage --detectOpenHandles --watchAll --forceExit
 
   run_integration_tests:
@@ -46,6 +49,7 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Run integretation tests
         run: npx cypress run
 
         
