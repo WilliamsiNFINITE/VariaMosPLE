@@ -8,6 +8,23 @@ on:
 
 jobs:
 
+  running_app:
+    name: Running App
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Install dependencies
+        run: npm install
+#      - name: Start application
+#        run: npm start
+#      - name: Run unit tests
+#        run: npm test -- --coverage --detectOpenHandles --watchAll --forceExit
+      - name: Run app
+        run: npm start
+
   running_tests:
     name: Running Tests Job
     runs-on: ubuntu-latest
