@@ -8,19 +8,44 @@ on:
 
 jobs:
 
-  running_tests:
-    name: Running Tests Job
+  install_dependencies:
+    name: Installing dependencies
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
 
-      - name: Install dependencies
         run: npm install
-      - name: Run unit tests
-        run: npm test -- --coverage --watchAll --forceExit
-      - name: Run integretation tests
+
+  start_application:
+    name: Starting application
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+        run: npm start
+
+  run_unit_tests:
+    name: Running unit tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+        run: npm test -- --coverage --detectOpenHandles --watchAll --forceExit
+
+  run_integration_tests:
+    name: Running integration test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
         run: npx cypress run
 
         
