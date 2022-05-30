@@ -18,9 +18,11 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-      - name: Run tests
-        run: |
-          npm start
-          npx cypress run 
+      - name: Start application
+        run: npm start
+      - name: Run unit tests
+        run: npm test -- --coverage --watchAll
+      - name: Run integretation tests
+        run: npx cypress run
 
         
