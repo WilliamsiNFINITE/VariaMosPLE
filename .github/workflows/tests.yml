@@ -1,4 +1,4 @@
-name: VariaMosPLE_LINT
+name: VariaMosPLE_TESTS
 
 on:
   push:
@@ -21,7 +21,7 @@ jobs:
       - name: Run tests
         run: |
           npm start
-          npm test --coverage
+          npm test -- --coverage --watchAll
           npx cypress run 
 
         
