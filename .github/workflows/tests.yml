@@ -19,7 +19,7 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: Run unit tests
-        run: npm test -- --coverage --watchAll
+        run: npm test -- --coverage --watchAll --forceExit
       - name: Run integretation tests
         run: npx cypress run
 
