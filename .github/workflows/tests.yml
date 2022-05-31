@@ -8,38 +8,50 @@ on:
 
 jobs:
 
-  running_app:
-    name: Running App
+#  running_app:
+#    name: Running App
+#    runs-on: ubuntu-latest
+#    steps:
+#      - uses: actions/checkout@v2
+#        with:
+#          fetch-depth: 0
+#
+#      - name: Install dependencies
+#        run: npm install
+##      - name: Start application
+##        run: npm start
+##      - name: Run unit tests
+##        run: npm test -- --coverage --detectOpenHandles --watchAll --forceExit
+#      - name: Run app
+#        run: npm start
+#
+#  running_unit_tests:
+#    name: Running Unit Tests Job
+#    runs-on: ubuntu-latest
+#    steps:
+#      - uses: actions/checkout@v2
+#        with:
+#          fetch-depth: 0
+#
+#      - name: Install dependencies
+#        run: npm install
+##      - name: Start application
+##        run: npm start
+##      - name: Run unit tests
+##        run: npm test -- --coverage --detectOpenHandles --watchAll --forceExit
+#      - name: Run integretation tests
+#        run: npx cypress run
+
+  running_integration_tests:
+    name: Runnig Integration Test
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v2
+      # Install NPM dependencies, cache them correctly
+      # and run all Cypress tests
+      - name: Cypress run
+        uses: cypress-io/github-action@v2
         with:
-          fetch-depth: 0
-
-      - name: Install dependencies
-        run: npm install
-#      - name: Start application
-#        run: npm start
-#      - name: Run unit tests
-#        run: npm test -- --coverage --detectOpenHandles --watchAll --forceExit
-      - name: Run app
-        run: npm start
-
-  running_tests:
-    name: Running Tests Job
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-
-      - name: Install dependencies
-        run: npm install
-#      - name: Start application
-#        run: npm start
-#      - name: Run unit tests
-#        run: npm test -- --coverage --detectOpenHandles --watchAll --forceExit
-      - name: Run integretation tests
-        run: npx cypress run
-
-        
+          build: npm run build
+          start: npm start
