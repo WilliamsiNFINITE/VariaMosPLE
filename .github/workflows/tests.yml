@@ -8,7 +8,7 @@ on:
 
 jobs:
 
-  running_app:
+  running_unit_tests:
     name: Running Tests
     runs-on: ubuntu-latest
     steps:
@@ -20,6 +20,17 @@ jobs:
       - name: Run tests
         run: yarn test --coverage
 
-#      - name: Run app
-#        run: npm start
+  running_e2e_tests:
+    name: Running Integration Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      # Install NPM dependencies, cache them correctly
+      # and run all Cypress tests
+      - name: Cypress run
+        uses: cypress-io/github-action@v2
+        with:
+          build: npm run build
+          start: npm start
 
