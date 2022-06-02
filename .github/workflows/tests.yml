@@ -29,11 +29,10 @@ jobs:
       # and run all Cypress tests
       - name: Install modules
         run: npm install
-#      - name: Run manually cypress
-#        run: cypress run
+
       - name: Cypress run
         uses: cypress-io/github-action@v2
-        with:
-#          build: npm run build
-          start: npm start
+#        with:
+##          build: npm run build
+#          start: npm start
 
