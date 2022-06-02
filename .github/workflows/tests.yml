@@ -1,25 +1,38 @@
-name: VariaMosPLE_TESTS
+#name: VariaMosPLE_TESTS
+#
+#on:
+#  push:
+#    branches:
+#      - CI_test
+#  workflow_dispatch:
+#
+#jobs:
+#
+#  running_app:
+#    name: Running App
+#    runs-on: ubuntu-latest
+#    steps:
+#      - uses: actions/checkout@v2
+#        with:
+#          fetch-depth: 0
+#
+#      - name: Install dependencies
+#        run: npm install
+#      - name: Run unit tests
+#        run: npm test -- --coverage --detectOpenHandles --watchAll --forceExit
 
-on:
-  push:
-    branches:
-      - CI_test
-  workflow_dispatch:
-
+name: CI
+on: push
 jobs:
-
-  running_app:
-    name: Running App
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
+      - name: Install modules
+        run: yarn
+      - name: Run tests
+        run: yarn test
 
-      - name: Install dependencies
-        run: npm install
-      - name: Run unit tests
-        run: npm test -- --coverage --detectOpenHandles --watchAll --forceExit
 #      - name: Run app
 #        run: npm start
 
