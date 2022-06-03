@@ -9,5 +9,5 @@ DISABLE:
   - SPELL # Comment to enable checks of spelling mistakes
 SHOW_ELAPSED_TIME: true
 FILEIO_REPORTER: true
-VALIDATE_ALL_CODEBASE: true
+#VALIDATE_ALL_CODEBASE: false # Décommenter pour analyser les nouveaux fichiers et les fichiers modifiés
 # DISABLE_ERRORS: true # Uncomment if you want MegaLinter to detect errors but not block CI to pass
