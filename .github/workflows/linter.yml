@@ -5,7 +5,7 @@ on:
     branches:
       - main
       - megalinter
-  workflow_dispatch:efzff
+  workflow_dispatch:
   pull_request:
     types: [opened, synchronize, reopened]
 
