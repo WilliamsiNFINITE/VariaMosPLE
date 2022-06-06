@@ -7,6 +7,6 @@ ReactDOM.render(
   <React.StrictMode>
     <DashBoard />
     {/* <SignInUp /> */}
-  </React.StrictMode>,aeeazeae:eae:d!!s!d!s:deaera
+  </React.StrictMode>,
   document.getElementById("root")
 );
