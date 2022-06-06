@@ -8,8 +8,5 @@ ReactDOM.render(
     <DashBoard />
     {/* <SignInUp /> */}
   </React.StrictMode>,
-  document.getElementById("root")eaeeaej zkezoek
-akeozk
- zezkeo
-
+  document.getElementById("root")
 );
