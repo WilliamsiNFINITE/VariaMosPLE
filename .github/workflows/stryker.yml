@@ -104,8 +104,9 @@ jobs:
           fetch-depth: 0
       - name: Install modules
         run: yarn
-      - name: Run tests
+      - name: Run unit and integration tests
         run: yarn test --coverage #tests can be passed without the coverage option
+
 
   e2e_test:
     runs-on: ubuntu-latest
