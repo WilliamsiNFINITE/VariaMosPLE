@@ -21,4 +21,4 @@ jobs:
       - name: Dependencies
         run: |
           npm install
-          stryker run
+          npx stryker run
