@@ -292,6 +292,7 @@ describe('User should be able to create graphs', ()=>{
         cy.get('#hiddenProject').trigger('click');
 
     })
+
     it('user should be able to create a new model', () => {
         //Right-click on domain engineering (the two following lines do the same thing)
         cy.findByText(/domain engineering/i).rightclick(-10,-10,{ force: true });
@@ -306,22 +307,41 @@ describe('User should be able to create graphs', ()=>{
         // cy.get('div[id="vgraph-container"]').find('svg').trigger('pointerup', { force: true });
 
     });
-
     it('user should be able to create a new product line', () => {
         cy.findByText(/my new product line/i).rightclick();
         cy.findByText(/new product line/i).trigger('pointermove')
 
     });
-
+    it('user should be able to create an application', ()=>{
+        cy.get('')
+    })
+    it('user should be able to create an adaptation', ()=>{
+        cy.get('')
+    })
     it('user should be able to rename a product line', () => {
         cy.findByText(/my new product line/i).rightclick();
         cy.findByText(/rename/i).trigger('pointermove')
-
     });
-
+    it('user should be able to rename an application', () => {
+        cy.get('')
+    });
+    it('user should be able to rename an adaptation', () => {
+        cy.get('')
+    });
     it('user should be able to delete a product line', () => {
         cy.findByText(/my new product line/i).rightclick();
         cy.findByText(/delete/i).trigger('pointermove')
 
     });
+    it('user should be able to delete a model', () => {
+        cy.get('')
+    });
+    it('user should be able to delete an application', () => {
+        cy.get('')
+    });
+    it('user should be able to delete an adaptation', () => {
+        cy.get('')
+    });
+
+
 })

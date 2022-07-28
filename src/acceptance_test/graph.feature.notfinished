@@ -1,0 +1,72 @@
+Feature: Create graphs
+
+  Verify that the user can create graphs
+
+  Scenario: user opens the side menu
+    Given the user is on the main page
+    When the user clicks on the button to open the menu
+    Then the side menu opens
+
+  Scenario: user closes the side menu
+    Given the user is on the main page
+    When the user clicks on the button to close the menu
+    Then the side menu closes
+
+#  TODO  Put some name like '<model name>'
+  Scenario: user creates a model
+    Given a model name
+    When the user creates a model
+    Then the name of the model should appear on the menu
+
+  Scenario: user creates a product line
+    Given a product line name
+    When the user creates a product line
+    Then the name of the product line should appear on the menu
+
+  Scenario: user creates an application
+    Given an application name
+    When the user creates an application
+    Then the name of the application should appear on the menu
+
+  Scenario: user creates an adaptation
+    Given an adaptation name
+    When the user creates an adaptation
+    Then the name of the adaptation should appear on the menu
+
+  Scenario: user renames a product line
+    Given an existing product line
+    When the user changes the name to "name"
+    Then the name should appear on the menu
+
+  Scenario: user renames an application
+    Given an existing application
+    When the user changes the name to "name"
+    Then the name should appear on the menu
+
+  Scenario: user renames an adaptation
+    Given an existing adaptation
+    When the user changes the name to "name"
+    Then the name should appear on the menu
+
+  Scenario: user delete a model
+    Given a specific model
+    When the user deletes the model
+    Then the model should not be in the menu anymore
+
+  Scenario: user delete a product line
+    Given a specific product line
+    When the user deletes the product line
+    Then the product line should not be in the menu anymore
+
+  Scenario: user delete an application
+    Given a specific application
+    When the user deletes the application
+    Then the application should not be in the menu anymore
+
+  Scenario: user delete an adaptation
+    Given a specific adaptation
+    When the user deletes the adaptation
+    Then the adaptation should not be in the menu anymore
+
+
+
