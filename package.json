@@ -2,7 +2,8 @@
   "name": "variamos-ple",
   "jest": {
     "testMatch": [
-      "**/*.steps.js"
+      "**/__tests__/**/*.[jt]s?(x)",
+      "**/?(*.)+(spec_disable|test_disable|steps).[jt]s?(x)"
     ],
     "coverageThreshold": {
       "global": {

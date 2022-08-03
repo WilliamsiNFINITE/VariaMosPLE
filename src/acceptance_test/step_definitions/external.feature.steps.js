@@ -22,6 +22,7 @@ defineFeature(feature, (test)=> {
             //Check the button exists
             if (button == "logo"){
                 expect(screen.getByRole('img')).toBeVisible()
+                screen.debug(undefined, 30000)
             }
             else if (button == "home"){
                 expect(screen.getByRole('listitem', {name: /home/i})).toBeVisible()
@@ -34,9 +35,12 @@ defineFeature(feature, (test)=> {
         then(/^the user should be sent to (.*)$/, (website) => {
             //Check the links
             if (website == "variamos_home"){
-                // screen.debug(undefined, 30000)
-                // screen.getByRole('')
-                console.log(screen.getAllByRole('link', {name : ""})[0])
+                expect(screen.getAllByRole('link', {name : ""})[0]).toHaveAttribute(
+                    "href",
+                    variamos_link)
+                expect(screen.getAllByRole('link', {name : ""})[1]).toHaveAttribute(
+                    "href",
+                    variamos_link)
             }
             else {
                 expect(screen.getByRole('link', {name: "What is VariaMos?"})).toHaveAttribute(
