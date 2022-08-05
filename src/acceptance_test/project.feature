@@ -40,7 +40,7 @@ Feature: Manage Projects
 #    When
 #    Then
 #
-#  Scenario: User upload a project
+#  Scenario: User uploads a project
 #    Given
 #    When
 #    Then

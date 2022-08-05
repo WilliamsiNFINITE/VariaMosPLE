@@ -5,21 +5,25 @@ const {render, screen} = require("@testing-library/react");
 const feature = loadFeature('src/acceptance_test/language.feature', {tagFilter: '@included'});
 import '@testing-library/jest-dom/extend-expect';
 import ProjectService from "../../Application/Project/ProjectService";
-import LanguageManagement from "../../UI/ProjectManagement/LanguageManagement";
 import React from "react";
 import userEvent from "@testing-library/user-event";
 import DashBoard from "../../UI/WorkSpace/DashBoard";
-
+import {mockReturnedValue} from "../../mockReturnedValue";
 
 
 defineFeature(feature, (test)=> {
 
     const givenTheUserIsInLanguageTab = (given) => {
         given('the user is on the language tab', (arg0) => {
+
+            // jest.spyOn(ProjectService.prototype, "getLanguagesDetail").mockImplementation(() => mockReturnedValue);
             let project_service = new ProjectService();
-            render(<DashBoard />)
+            // project_service.getLanguagesDetail()
+            render(<DashBoard  projectService={project_service}/>)
+
             // render(<LanguageManagement projectService={project_service} />);
 
+            screen.debug(undefined, 30000)
             //create new language
             screen.getByRole('listitem', {name: /new language/i}).click()
 
@@ -88,11 +92,7 @@ defineFeature(feature, (test)=> {
             userEvent.selectOptions(screen.getByRole('combobox', {
                 name: /select language/i
             }), '-1');
-
-            // expect(screen.getByText('')).toBeVisible();
-            // expect(screen.getByRole('textbox', {
-            //     name: /enter concrete syntax enter concrete syntax/i
-            // })).toBeVisible();
+            // -1 is the default value, does not verify the language was added
             expect(1).toBe(0)
         });
 
@@ -113,11 +113,7 @@ defineFeature(feature, (test)=> {
             userEvent.selectOptions(screen.getByRole('combobox', {
                 name: /select language/i
             }), '-1');
-
-            // expect(screen.getByText('')).toBeVisible();
-            // expect(screen.getByRole('textbox', {
-            //     name: /enter concrete syntax enter concrete syntax/i
-            // })).toBeVisible();
+            // -1 is the default value, does not verify the language was added
             expect(1).toBe(0)
         });
 
